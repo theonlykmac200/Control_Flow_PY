@@ -1,6 +1,6 @@
 
 # exercise-01 Vowel or Consonant
-letter = input("Enter a letter in the alphabet: ")
+letter = input("Enter a letter in the alphabet: ").lower()
 if letter == "a" or letter == "e" or letter == "i" or letter == "o" or letter == "u":
     print("The letter is a vowel")
 else:
@@ -16,7 +16,7 @@ else:
 #      - What you entered is xx characters long
 # 3. Return to step 1, unless the word 'quit' was entered
 
-length_of_phrase = input("Please enter a word or phrase: ")
+length_of_phrase = input("Please enter a word or phrase: ").lower()
 while length_of_phrase != "quit":
     print("What you entered is", len(length_of_phrase), "characters long")
     length_of_phrase = input("Please enter a word or phrase: ")
@@ -57,7 +57,7 @@ print("Your pup's age in dog years is", pups_age)
 # 3. Print a message such as:
 #      - A triangle with sides of <a>, <b> & <c> is a <type of triangle> triangle
 
-triangle = int(input("Enter the lengths of three sides of a triangle (at the same time): "))
+triangle = (input("Enter the lengths of three sides of a triangle (Type 'ok' and hit enter): "))
 a = int(input("a: "))
 b = int(input("b: "))
 c = int(input("c: "))
@@ -107,11 +107,22 @@ for i in range(2, 50):
 #      Sep 22 - Dec 20: Fall
 # 4. Print the result as follows:
 #      <Mmm> <dd> is in <season>
-
 # Hints:
 # Consider using the in operator to check if a string is in a particular list/tuple like this:
 # if input_month in ('Jan', 'Feb', 'Mar'):
 # After setting the likely season, you can use another if...elif...else statement to "adjust" if
 # the day number falls within a certain range.
 
-
+month = input("Enter the month of the season (Jan - Dec): ").lower()
+day = int(input("Enter the day of the month: "))
+if month in ('jan', 'feb') or (month == 'dec' and day >= 21) or (month == 'mar' and day <= 19):
+    print(f"{month} {day} is winter")
+elif month in ('apr', 'may') or (month == 'mar' and day >= 20) or (month == 'jun' and day <= 20):
+    print(f"{month} {day} is spring")
+elif month in ('jul', 'aug') or (month == 'jun' and day >= 21) or (month == 'sep' and day <= 21):
+    print(f"{month} {day} is summer")
+elif month in ('oct', 'nov') or (month == 'sep' and day >= 22) or (month == 'dec' and day <= 20):
+    print(f"{month} {day} is fall")
+else:
+    print("Invalid date")
+ 
